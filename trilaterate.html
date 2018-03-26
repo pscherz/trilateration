@@ -104,9 +104,11 @@ label {
 	</div>
 	<input type="button" value="calculate" onclick="calculate()">
 	<label> Output:<pre id="output"></pre></label>
+	<label> Google Maps:<a id="output_maps" href=""></a></label>
 
 	<script type="text/javascript">
 output = document.getElementById("output");
+output = document.getElementById("output_maps");
 function calculate() {
 	longs = [
 		document.getElementById("long1").value,
@@ -130,6 +132,8 @@ function calculate() {
 	];
 	var point = trilaterate(beacons)
 	output.innerText = point[0] + "," + point[1];
+	output_maps.innerText = point[0] + "," + point[1];
+	output_maps.href = "https://www.google.at/maps/@" + point[0] + "," + point[1] + ",17z";
 }
 	</script>
 </body>
