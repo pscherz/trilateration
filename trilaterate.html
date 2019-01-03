@@ -19,19 +19,18 @@ label {
 		<table>
 			<tr>
 				<td>
+					<label for="lat1">Latitude 1:</label>
+				</td>
+				<td>
+					<input id="lat1" type="text" value="35.000000">
+				</td>
+			</tr>
+			<tr>
+				<td>
 					<label for="long1">Longitude 1:</label>
 				</td>
 				<td>
-					<input id="long1" type="text" value="35.000000">
-				</td>
-			</tr>
-
-			<tr>
-				<td>
-					<label for="lat">Latitude 1:</label>
-				</td>
-				<td>
-					<input id="lat1" type="text" value="-120.000000">
+					<input id="long1" type="text" value="-120.000000">
 				</td>
 			</tr>
 			<tr>
@@ -48,19 +47,18 @@ label {
 		<table>
 			<tr>
 				<td>
+					<label for="lat2">Latitude 2:</label>
+				</td>
+				<td>
+					<input id="lat2" type="text" value="35.000005">
+				</td>
+			</tr>
+			<tr>
+				<td>
 					<label for="long2">Longitude 2:</label>
 				</td>
 				<td>
-					<input id="long2" type="text" value="35.000005">
-				</td>
-			</tr>
-
-			<tr>
-				<td>
-					<label for="lat">Latitude 2:</label>
-				</td>
-				<td>
-					<input id="lat2" type="text" value="-120.000010">
+					<input id="long2" type="text" value="-120.000010">
 				</td>
 			</tr>
 			<tr>
@@ -77,19 +75,18 @@ label {
 		<table>
 			<tr>
 				<td>
+					<label for="lat3">Latitude 3:</label>
+				</td>
+				<td>
+					<input id="lat3" type="text" value="35.000000">
+				</td>
+			</tr>
+			<tr>
+				<td>
 					<label for="long3">Longitude 3:</label>
 				</td>
 				<td>
-					<input id="long3" type="text" value="35.000000">
-				</td>
-			</tr>
-
-			<tr>
-				<td>
-					<label for="lat">Latitude 3:</label>
-				</td>
-				<td>
-					<input id="lat3" type="text" value="-120.000020">
+					<input id="long3" type="text" value="-120.000020">
 				</td>
 			</tr>
 			<tr>
@@ -110,15 +107,15 @@ label {
 output = document.getElementById("output");
 output = document.getElementById("output_maps");
 function calculate() {
-	longs = [
-		document.getElementById("long1").value,
-		document.getElementById("long2").value,
-		document.getElementById("long3").value
-	];
 	lats = [
 		document.getElementById("lat1").value,
 		document.getElementById("lat2").value,
 		document.getElementById("lat3").value
+	];
+	longs = [
+		document.getElementById("long1").value,
+		document.getElementById("long2").value,
+		document.getElementById("long3").value
 	];
 	dists = [
 		document.getElementById("dist1").value,
@@ -126,9 +123,9 @@ function calculate() {
 		document.getElementById("dist3").value
 	];
 	var beacons = [
-		new Beacon(longs[0], lats[0], dists[0]),
-		new Beacon(longs[1], lats[1], dists[1]),
-		new Beacon(longs[2], lats[2], dists[2])
+		new Beacon(lats[0], longs[0], dists[0]),
+		new Beacon(lats[1], longs[1], dists[1]),
+		new Beacon(lats[2], longs[2], dists[2])
 	];
 	var point = trilaterate(beacons)
 	output.innerText = point[0] + "," + point[1];
