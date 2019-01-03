@@ -126,9 +126,9 @@ function calculate() {
 		document.getElementById("dist3").value
 	];
 	var beacons = [
-		new Beacon(longs[0], lats[0], dists[0]),
-		new Beacon(longs[1], lats[1], dists[1]),
-		new Beacon(longs[2], lats[2], dists[2])
+		new Beacon(lats[0], longs[0], dists[0]),
+		new Beacon(lats[1], longs[1], dists[1]),
+		new Beacon(lats[2], longs[2], dists[2])
 	];
 	var point = trilaterate(beacons)
 	output.innerText = point[0] + "," + point[1];
